@@ -1,7 +1,7 @@
 from redbot.core import commands
 import random, discord
 
-class RandomBotCog(commands.Cog):
+class RandomBot(commands.Cog):
   def __init__(self, main):
     self.bot = main
   
@@ -305,11 +305,4 @@ class RandomBotCog(commands.Cog):
 #End Choosers.py
 
 def setup(bot : commands.Bot):
-  '''bot.add_cog(Values(main=bot))
-  bot.add_cog(Choosers(main=bot))
-  bot.add_cog(Shards(main=bot))
-  bot.add_cog(Shufflers(main=bot))
-  bot.add_cog(Hidden(main=bot))
-  bot.add_cog(Generators(main=bot))
-  bot.add_cog(Events(main=bot))'''
-  bot.add_cog(RandomBotCog(main=bot))
+  bot.add_cog(RandomBot(main=bot))
