@@ -158,7 +158,56 @@ class RandomBotCog(commands.Cog, *Cogs):
             await ctx.send(embed=embed)
   #End Hidden.py
   
+  #Start Generators.py
+        if length > 1975:
+        return await ctx.send("I can only generate passwords shorter than 1975 characters.")
+      chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();,./':<>?\[]}{-=+"
+      password=""
+      if length > 5:
+          for passlength in range(0,length):
+              genchar=random.choice(chars)
+              password=password+genchar
+          if ctx.guild == None:
+            await ctx.send(password)
+          else:
+            await ctx.author.send(f'Generated password: `${password}`')
+            await ctx.send('Check your DM\'s.')
+      else:
+          await ctx.send("There must be at least 6 characters.")
   
+  @commands.command(name='binarygen', help='Generate a random binary sequence.')
+  async def bgen(self, ctx, length : int):
+    if length > 220:
+      return await ctx.send("I can only generate binary sequences shorter than 220 chunks.")
+    bin = '01'
+    gbin = ''
+    for bgener1 in range(0, length):
+      for bgener2 in range(0,8):
+        cbin = random.choice(bin)
+        gbin = gbin + cbin
+      gbin = gbin + ' '
+    await ctx.send(gbin)
+  
+  @commands.command(name='eject', help='Eject a user.')
+  async def ejectuser(self, ctx, *, user : discord.Member="you"):
+    if user == "you":
+      user = ctx.author
+    crew = ["black", "blue", "brown", "cyan", "darkgreen", "lime", "orange", "pink", "purple", "red", "white", "yellow"]
+    crewcolor = random.choice(crew)
+    imp = ["true", "false", "false", "false", "false"]
+    isimpostor = random.choice(imp)
+    username = str(user.name)
+    urlname = urllib.parse.quote(username)
+    ejected = f'https://vacefron.nl/api/ejected?name={urlname}&impostor={isimpostor}&crewmate={crewcolor}'
+    embed = discord.Embed()
+    embed.set_image(url=ejected)
+    await ctx.send(embed=embed)
+
+  @commands.command(name='lettergen', help='Generate a random letter.')
+  async def lgen(self, ctx):
+      chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+      await ctx.send(random.choice(chars))
+  #End Generators.py
 
 def setup(bot : commands.Bot):
   '''bot.add_cog(Values(main=bot))
