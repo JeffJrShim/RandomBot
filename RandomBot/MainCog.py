@@ -163,7 +163,7 @@ class RandomBotCog(commands.Cog):
     await ctx.send(embed=embed)
   
   @commands.command(name='rbpasswordgen', help='Generate a random password')
-  async def gencolor(self, ctx):
+  async def genpass(self, ctx):
       if length > 1975:
         return await ctx.send("I can only generate passwords shorter than 1975 characters.")
       chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();,./':<>?\[]}{-=+"
