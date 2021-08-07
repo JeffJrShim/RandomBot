@@ -1,10 +1,10 @@
-import RandomBot.Values.*
-import RandomBot.Choosers.*
-import RandomBot.Shards.*
-import RandomBot.Shufflers.*
-import RandomBot.Hidden.*
-import RandomBot.Generators.*
-import RandomBot.Events.*
+from RandomBot.Values import *
+from RandomBot.Choosers import *
+from RandomBot.Shards import *
+from RandomBot.Shufflers import *
+from RandomBot.Hidden import *
+from RandomBot.Generators import *
+from RandomBot.Events import *
 
 from discord.ext import commands
 
