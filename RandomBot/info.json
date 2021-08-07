@@ -1,0 +1,10 @@
+{
+  "name": "RandomBot",
+  "author": "Guacaplushy",
+  "install_msg": "Thank you for installing the RandomBot Red cog. If you need support, please make an issue on the GitHub repo (https://github.com/guacaplushy/RandomBot)",
+  "description": "RandomBot, but its a Red cog.",
+  "short": "RandomBot, but its a Red cog.",
+  "tags": [
+    "randombot"
+  ]
+}
