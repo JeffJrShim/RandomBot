@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://randombot.tk/sitemap_index.xml
