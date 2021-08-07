@@ -1,5 +1,5 @@
 from redbot.core import commands
-import random
+import random, discord
 
 class RandomBotCog(commands.Cog):
   def __init__(self, main):
