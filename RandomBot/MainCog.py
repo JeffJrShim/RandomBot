@@ -8,7 +8,9 @@ from RandomBot.Events import *
 
 from discord.ext import commands
 
-class RandomBotCog(commands.Cog, Values, Choosers, Shards, Shufflers, Hidden, Generators, Events):
+Cogs = (Values, Choosers, Shards, Shufflers, Hidden, Generators, Events)
+
+class RandomBotCog(commands.Cog, *Cogs):
   "I'm not empty!"
 
 def setup(bot : commands.Bot):
