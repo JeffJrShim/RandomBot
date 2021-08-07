@@ -1,9 +1,7 @@
 from redbot.core import commands
 import random
 
-Cogs = (Choosers, Shards, Shufflers, Hidden, Generators, Events)
-
-class RandomBotCog(commands.Cog, *Cogs):
+class RandomBotCog(commands.Cog):
   def __init__(self, main):
     self.bot = main
   
