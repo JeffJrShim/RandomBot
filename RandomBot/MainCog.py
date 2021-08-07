@@ -150,6 +150,18 @@ class RandomBotCog(commands.Cog):
   #End Hidden.py
   
   #Start Generators.py
+  @commands.command(name='rbcolorgen', aliases=['rbcolourgen', 'rbcolor', 'rbcolour'], help='Generate a random hex color')
+  async def gencolor(self, ctx):
+    hexlist = '01234567890abcdef'
+    colorhex = ''
+    for makecolor in range(0,6):
+      genhex = random.choice(hexlist)
+      colorhex = colorhex + genhex
+    color = discord.Color(int(colorhex, 16))
+    colrgb = discord.Color.to_rgb(color)
+    embed=discord.Embed(title=f'{color} {colrgb}', color=color)
+    await ctx.send(embed=embed)
+  
   @commands.command(name='rbpasswordgen', help='Generate a random password')
   async def gencolor(self, ctx):
       if length > 1975:
