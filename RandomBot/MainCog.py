@@ -6,7 +6,7 @@ class RandomBotCog(commands.Cog):
     self.bot = main
   
   #Start Values.py
-  @commands.command(name='randomnumber', help='Generates a random number.')
+  @commands.command(name='rbrandomnumber', help='Generates a random number.')
   async def randomnumberexec(self, ctx, nmbr: int=1000000):
     if (nmbr > 1000000000000):
       await ctx.send("I can only generate numbers lower than 1000000000000.")
@@ -14,7 +14,7 @@ class RandomBotCog(commands.Cog):
     response = random.randint(0,nmbr)
     await ctx.send(response)
 
-  @commands.command(name='randomrange', help='Generates a number in a range.')
+  @commands.command(name='rbrandomrange', help='Generates a number in a range.')
   async def randomrange(self, ctx, min : int, max : int):
     if (max > 1000000000000):
       await ctx.send("I can only generate numbers lower than 1000000000000.")
@@ -22,26 +22,26 @@ class RandomBotCog(commands.Cog):
     response = random.randint(min,max)
     await ctx.send(response)
   
-  @commands.command(name='luckynumber', help='Generate a lucky number.')
+  @commands.command(name='rbluckynumber', help='Generate a lucky number.')
   async def gennumber(self, ctx):
       newnumber = random.randint(0,100)
       await ctx.send(newnumber)
 
-  @commands.command(name='cooltest', help='How cool are you?')
+  @commands.command(name='rbcooltest', help='How cool are you?')
   async def test(self, ctx):
     await ctx.send(f'{ctx.author.mention}, You are {random.randint(0,100)} percent cool.')
   
-  @commands.command(name='risktest', help='How risky is something?')
+  @commands.command(name='rbrisktest', help='How risky is something?')
   async def tester(self, ctx, *, idea):
     risk = random.randint(0,100)
     await ctx.send(f'***{idea}*** is {risk}% risky')
   
-  @commands.command(name='smarttest', help='How smart are you?')
+  @commands.command(name='rbsmarttest', help='How smart are you?')
   async def stester(self, ctx):
     smart = random.randint(0,100)
     await ctx.send(f'{ctx.author.mention}, You are {smart}% smart')
 
-  @commands.command(name='rate', help='Rate a thing.')
+  @commands.command(name='rbrate', help='Rate a thing.')
   async def rs(self, ctx, *, thing):
     v1 = random.randint(0,5)
     v2 = random.randint(0,9)
@@ -54,7 +54,7 @@ class RandomBotCog(commands.Cog):
     else:
       await ctx.send(f'I rate ***{thing}*** {v1}.{v2} out of 5 stars.')
   
-  @commands.command(name='dice', help='Roll dice.')
+  @commands.command(name='rbdice', help='Roll dice.')
   async def roll(self, ctx, numberofdice: int, numberofsides: int):
       vdice = [
           str(random.choice(range(1, numberofsides + 1)))
@@ -64,13 +64,13 @@ class RandomBotCog(commands.Cog):
   #End Values.py
   
   #Start Shufflers.py
-  @commands.command(name='shuffle', help='Shuffle word(s)')
+  @commands.command(name='rbshuffle', help='Shuffle word(s)')
   async def shuffler(self, ctx, *, word: str):
       wordl = list(word)
       random.shuffle(wordl)
       await ctx.send(''.join(wordl))
   
-  @commands.command(name='shufflebyword', help='Shuffle every word in a sentence.')
+  @commands.command(name='rbshufflebyword', help='Shuffle every word in a sentence.')
   async def shuffleword(self, ctx, *, wordl: str):
       wordl = wordl.split(" ")
       newsentence = []
@@ -84,7 +84,7 @@ class RandomBotCog(commands.Cog):
       wordl = newsentence
       await ctx.send(''.join(wordl))
 
-  @commands.command(name='shufflesentence', help='Shuffle words to make a weird sentence.')
+  @commands.command(name='rbshufflesentence', help='Shuffle words to make a weird sentence.')
   async def makesentence(self, ctx, *, sentence: str):
       wordlist = sentence.split(' ')
       wordlist1 = list(wordlist)
@@ -119,19 +119,19 @@ class RandomBotCog(commands.Cog):
   #End Shards.py
   
   #Start Hidden.py
-  @commands.command(hidden=True)
+  @commands.command(name="rbsupport", hidden=True)
   async def support(self, ctx):
     embed = discord.Embed()
     embed.add_field(name="Need help?", value="Click [here](https://randombot.tk/support) to join the support server.")
     await ctx.send(embed=embed)
   
-  @commands.command(hidden=True)
+  @commands.command(name="rbinvite", hidden=True)
   async def invite(self, ctx):
     embed = discord.Embed()
     embed.add_field(name="Want to invite me?", value="Click [here](https://randombot.tk/invite) to invite me to a server.")
     await ctx.send(embed=embed)
   
-  @commands.command(hidden=True)
+  @commands.command(name="rbbotinfo", hidden=True)
   async def botinfo(self, ctx):
             hexlist = '01234567890abcdef'
             colorhex = ''
@@ -150,7 +150,7 @@ class RandomBotCog(commands.Cog):
   #End Hidden.py
   
   #Start Generators.py
-  @commands.command(name='colorgen', aliases=['colourgen', 'color', 'colour'], help='Generate a random hex color')
+  @commands.command(name='rbcolorgen', aliases=['colourgen', 'color', 'colour'], help='Generate a random hex color')
   async def gencolor(self, ctx):
       if length > 1975:
         return await ctx.send("I can only generate passwords shorter than 1975 characters.")
@@ -168,7 +168,7 @@ class RandomBotCog(commands.Cog):
       else:
           await ctx.send("There must be at least 6 characters.")
   
-  @commands.command(name='binarygen', help='Generate a random binary sequence.')
+  @commands.command(name='rbbinarygen', help='Generate a random binary sequence.')
   async def bgen(self, ctx, length : int):
     if length > 220:
       return await ctx.send("I can only generate binary sequences shorter than 220 chunks.")
@@ -181,7 +181,7 @@ class RandomBotCog(commands.Cog):
       gbin = gbin + ' '
     await ctx.send(gbin)
   
-  @commands.command(name='eject', help='Eject a user.')
+  @commands.command(name='rbeject', help='Eject a user.')
   async def ejectuser(self, ctx, *, user : discord.Member="you"):
     if user == "you":
       user = ctx.author
@@ -196,7 +196,7 @@ class RandomBotCog(commands.Cog):
     embed.set_image(url=ejected)
     await ctx.send(embed=embed)
 
-  @commands.command(name='lettergen', help='Generate a random letter.')
+  @commands.command(name='rblettergen', help='Generate a random letter.')
   async def lgen(self, ctx):
       chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
       await ctx.send(random.choice(chars))
@@ -213,9 +213,9 @@ class RandomBotCog(commands.Cog):
     await self.bot.change_presence(status=discord.Status.online, activity=activity)
     print(f'{self.bot.user} is ready to go!')
 
-  @commands.Cog.listener() 
+  '''@commands.Cog.listener() 
   async def on_message(self, message):
-    if message.content.startswith("rb."):
+    if message.content.startswith(""):
       logs = await self.bot.fetch_channel(832337043064488047)
       await logs.send(f"command message sent by ***{message.author.name}#{message.author.discriminator}*** in server ***{message.guild.name}*** (***{message.guild.id}***) in channel ***{message.channel.name}*** (***{message.channel.id}***). content: {message.content}")
     for x in message.mentions:
@@ -240,7 +240,7 @@ class RandomBotCog(commands.Cog):
               embed.set_footer(text=f'Requested by {message.author.display_name}#{message.author.discriminator}', icon_url=message.author.avatar_url)
             else:
               embed.set_footer(text=f'Requested by {message.author.display_name} ({message.author.name}#{message.author.discriminator})', icon_url=message.author.avatar_url)
-            await message.channel.send(embed=embed)
+            await message.channel.send(embed=embed)'''
  #End Events.py
 
  #Start Choosers.py
@@ -250,7 +250,7 @@ class RandomBotCog(commands.Cog):
       uinfo = f'{user}'
       greactors.remove(uinfo)
 
-  @commands.command(name="choose", help="Seperate choices with \" + \"")
+  @commands.command(name="rbchoose", help="Seperate choices with \" + \"")
   async def c(self,ctx, *, options):
     osplit = options.split(" + ")
     ping = False
@@ -262,13 +262,13 @@ class RandomBotCog(commands.Cog):
     choice = random.choice(osplit)
     await ctx.send(f"I choose ***{choice}***.")
 
-  @commands.command(name='decide', help="Decide on something for you")
+  @commands.command(name='rbdecide', help="Decide on something for you")
   async def chooser(self, ctx, *, thing):
     options = ['Yes.', 'For sure!', 'Maybe.', 'I don\'t know.', 'No.', 'Definently not.', 'Definently!']
     choic3 = random.choice(options)
     await ctx.send(choic3)
   
-  @commands.command(name="randomuser", description="Chooses a member from the member type")
+  @commands.command(name="rbrandomuser", description="Chooses a member from the member type")
   async def randomuser(self, ctx, usertype):
     if usertype == "bot":
       users = ctx.guild.members
