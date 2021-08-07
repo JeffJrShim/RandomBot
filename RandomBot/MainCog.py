@@ -1,12 +1,5 @@
-from RandomBot.Values import *
-from RandomBot.Choosers import *
-from RandomBot.Shards import *
-from RandomBot.Shufflers import *
-from RandomBot.Hidden import *
-from RandomBot.Generators import *
-from RandomBot.Events import *
-
 from redbot.core import commands
+import random
 
 Cogs = (Choosers, Shards, Shufflers, Hidden, Generators, Events)
 
@@ -210,7 +203,7 @@ class RandomBotCog(commands.Cog, *Cogs):
   #End Generators.py
   
   #Start Events.py
-    @commands.Cog.listener()
+  @commands.Cog.listener()
   async def on_command_error(self, ctx, error):
     await ctx.send(f'An error occured: {str(error)}')
   
@@ -249,6 +242,55 @@ class RandomBotCog(commands.Cog, *Cogs):
               embed.set_footer(text=f'Requested by {message.author.display_name} ({message.author.name}#{message.author.discriminator})', icon_url=message.author.avatar_url)
             await message.channel.send(embed=embed)
  #End Events.py
+
+ #Start Choosers.py
+  @commands.Cog.listener()
+  async def on_reaction_remove(self, reaction, user):
+    if str(reaction.emoji) == "🎉":
+      uinfo = f'{user}'
+      greactors.remove(uinfo)
+
+  @commands.command(name="choose", help="Seperate choices with \" + \"")
+  async def c(self,ctx, *, options):
+    osplit = options.split(" + ")
+    ping = False
+    for option in osplit:
+      if option.startswith("<@") or option.startswith("@here") or option.startswith("@everyone"):
+        ping = True
+    if ping:
+      return await ctx.send("I can't ping.")
+    choice = random.choice(osplit)
+    await ctx.send(f"I choose ***{choice}***.")
+
+  @commands.command(name='decide', help="Decide on something for you")
+  async def chooser(self, ctx, *, thing):
+    options = ['Yes.', 'For sure!', 'Maybe.', 'I don\'t know.', 'No.', 'Definently not.', 'Definently!']
+    choic3 = random.choice(options)
+    await ctx.send(choic3)
+  
+  @commands.command(name="randomuser", description="Chooses a member from the member type")
+  async def randomuser(self, ctx, usertype):
+    if usertype == "bot":
+      users = ctx.guild.members
+      while True:
+        chosen = random.choice(users)
+        if not chosen.bot:
+          continue
+        elif chosen.id != self.bot.user.id:
+          await ctx.send(f"{chosen.name}#{chosen.discriminator}")
+          return
+    elif usertype == "user":
+      users = ctx.guild.members
+      while True:
+        chosen = random.choice(users)
+        if not chosen.bot:
+          await ctx.send(f"{chosen.name}#{chosen.discriminator}")
+          return
+        else:
+          continue
+    else:
+      await ctx.send("Type invalid, wanted user or bot.")
+#End Choosers.py
 
 def setup(bot : commands.Bot):
   '''bot.add_cog(Values(main=bot))
