@@ -152,7 +152,7 @@ class RandomBotCog(commands.Cog):
   #Start Generators.py
   @commands.command(name='colorgen', aliases=['colourgen', 'color', 'colour'], help='Generate a random hex color')
   async def gencolor(self, ctx):
-        if length > 1975:
+      if length > 1975:
         return await ctx.send("I can only generate passwords shorter than 1975 characters.")
       chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();,./':<>?\[]}{-=+"
       password=""
