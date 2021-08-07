@@ -126,6 +126,39 @@ class RandomBotCog(commands.Cog, *Cogs):
   async def on_shard_ready(self,shard_id):
     print(f"Shard {shard_id} is ready to go!")
   #End Shards.py
+  
+  #Start Hidden.py
+  @commands.command(hidden=True)
+  async def support(self, ctx):
+    embed = discord.Embed()
+    embed.add_field(name="Need help?", value="Click [here](https://randombot.tk/support) to join the support server.")
+    await ctx.send(embed=embed)
+  
+  @commands.command(hidden=True)
+  async def invite(self, ctx):
+    embed = discord.Embed()
+    embed.add_field(name="Want to invite me?", value="Click [here](https://randombot.tk/invite) to invite me to a server.")
+    await ctx.send(embed=embed)
+  
+  @commands.command(hidden=True)
+  async def botinfo(self, ctx):
+            hexlist = '01234567890abcdef'
+            colorhex = ''
+            for makecolor in range(0,6):
+              genhex = random.choice(hexlist)
+              colorhex = colorhex + genhex
+            color = discord.Color(int(colorhex, 16))
+            embed = discord.Embed(color=color)
+            embed.add_field(name="Users", value=str(len(self.bot.users)), inline=False)
+            embed.add_field(name="Servers", value=str(len(self.bot.guilds)), inline=False)
+            if ctx.author.name == ctx.author.display_name:
+              embed.set_footer(text=f'Requested by {ctx.author.display_name}#{ctx.author.discriminator}', icon_url=ctx.author.avatar_url)
+            else:
+              embed.set_footer(text=f'Requested by {ctx.author.display_name} ({ctx.author.name}#{ctx.author.discriminator})', icon_url=ctx.author.avatar_url)
+            await ctx.send(embed=embed)
+  #End Hidden.py
+  
+  
 
 def setup(bot : commands.Bot):
   '''bot.add_cog(Values(main=bot))
