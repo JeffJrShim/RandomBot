@@ -93,7 +93,7 @@ class RandomBotCog(commands.Cog):
   #End Shufflers.py
   
   #Start Shards.py
-    @commands.Cog.listener()
+  @commands.Cog.listener()
   async def on_shard_connect(self,shard_id):
     if shard_id == 0:
       activity = discord.Game(name=f"Starting shard {shard_id+1}.")
