@@ -1,6 +1,6 @@
 from redbot.core import commands
 import random, discord
-from time import sleep
+from asyncio import sleep
 
 class RandomBot(commands.Cog):
   """ RandomBot's main cog """
