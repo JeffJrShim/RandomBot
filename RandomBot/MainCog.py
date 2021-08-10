@@ -231,7 +231,7 @@ class RandomBot(commands.Cog):
       await gembed.edit(embed=nembed)
     chosenuser = random.choice(greactors)
     while True:
-      if chosenuser == "RandomBot#5275" or chosenuser == f"{ctx.author.name}#{ctx.author.discriminator}":
+      if chosenuser == f"{self.bot.user.name}#{self.bot.user.discriminator}" or chosenuser == f"{ctx.author.name}#{ctx.author.discriminator}":
         if gtimes == 100:
           wembed = discord.Embed(title=f'Nobody won the {reward} giveaway.')
           await gembed.edit(embed=wembed)
