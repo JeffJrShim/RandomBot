@@ -1,5 +1,6 @@
 from redbot.core import commands
 import random, discord
+from time import sleep
 
 class RandomBot(commands.Cog):
   """ RandomBot's main cog """
@@ -221,8 +222,8 @@ class RandomBot(commands.Cog):
     await gembed.add_reaction("🎉")
     nembed = None
     while gtime > 0:
-      await sleep(1)
-      gtime = gtime - 1
+      await sleep(10)
+      gtime = gtime - 10
       nembed = discord.Embed(title="New giveaway!")
       nembed.add_field(name="Prize", value=reward)
       nembed.add_field(name="Time", value=f'{gtime} seconds')
