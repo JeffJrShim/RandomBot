@@ -3,7 +3,7 @@
     "short": "RandomBot, but in a Red Cog.",
     "description": "RandomBot, but in a Red Cog.",
     "end_user_data_statement": "This cog does not store any data.",
-    "install_msg": "Thanks for installing RandomBot's Cog, if you need help, please make an issue on the GitHub (https://github.com/guacaplushy/RandomBot)",
+    "install_msg": "Thanks for installing RandomBot, if you need help, please make an issue on the GitHub (https://github.com/guacaplushy/RandomBot)",
     "author": [
         "Guacaplushy"
     ],
