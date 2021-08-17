@@ -125,7 +125,7 @@ class RandomBot(commands.Cog):
       """ Generate a random password """
       if length > 1975:
         return await ctx.send("I can only generate passwords shorter than 1975 characters.")
-      chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();,./':<>?\[]}{-=+"
+      chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*();,./':<>?\\[]}{-=+"
       password=""
       if length > 5:
           for passlength in range(0,length):
