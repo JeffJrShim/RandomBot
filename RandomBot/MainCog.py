@@ -121,7 +121,7 @@ class RandomBot(commands.Cog):
     await ctx.send(embed=embed)
   
   @commands.command(name='rbpasswordgen', help='Generate a random password')
-  async def genpass(self, ctx):
+  async def genpass(self, ctx, length = 25 : int):
       """ Generate a random password """
       if length > 1975:
         return await ctx.send("I can only generate passwords shorter than 1975 characters.")
