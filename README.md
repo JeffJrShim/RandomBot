@@ -4,7 +4,7 @@ RandomBot, but its a Red cog
 
 # Install
 
-Add the repo: `[p]repo add RandomBot https://github.com/guacaplushy/RandomBot` 
+Add the repo: `[p]repo add RandomBot https://github.com/RandomBotDev/RandomBotCog` 
 
 Install the cog: `[p]cog install RandomBot RandomBot` 
 
